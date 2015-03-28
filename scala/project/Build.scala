@@ -77,10 +77,10 @@ object Build extends Build {
           "io.spray" % "spray-routing" % "1.3.1",
           "io.spray" % "spray-can" % "1.3.1",
           "io.spray" % "spray-client" % "1.3.1",
-          "io.spray" %% "spray-json" % "1.3.1",
+          "io.spray" %% "spray-json" % "1.2.6",
           "io.spray" % "spray-httpx" % "1.3.1",
-          "com.typesafe.akka"   %%  "akka-actor"    % "2.3.9",
-          "com.typesafe.akka"   %%  "akka-testkit"  % "2.3.9"   % "test",
+          "com.typesafe.akka"   %%  "akka-actor"    % "2.2.4",
+          "com.typesafe.akka"   %%  "akka-testkit"  % "2.2.4"   % "test",
 
           // UTILS
           "com.github.nscala-time" %% "nscala-time" % "1.8.0",
