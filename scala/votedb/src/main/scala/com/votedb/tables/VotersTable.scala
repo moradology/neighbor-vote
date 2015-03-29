@@ -3,8 +3,11 @@ package com.votedb.tables
 import geotrellis.vector._
 import geotrellis.slick._
 
+import com.github.nscala_time.time.Imports._
 import scala.slick.driver.{JdbcDriver,JdbcProfile, PostgresDriver}
 import java.util.Date
+import com.github.tototoshi.slick.GenericJodaSupport
+
 
 /**
   * Represents a voter
@@ -23,12 +26,12 @@ case class Voter(
   lastName: Option[String],
   firstName: Option[String],
   middleName: Option[String],
-  dob: Date,
+  dob: LocalDate,
   streetAddress: String,
   city: Option[String],
   state: Option[String],
   zip: Option[Int],
-  lastvotedate: Option[Date],
+  lastvotedate: Option[LocalDate],
   affiliation: Option[String],
   status: String,
   geom: Option[Projected[Point]]
@@ -37,32 +40,37 @@ case class Voter(
 object VotersTable {
   import PostgresDriver.simple._
   private val gisSupport = new PostGisProjectionSupport(PostgresDriver)
+  import com.github.tototoshi.slick.PostgresJodaSupport._
   import gisSupport._
 
   class Voters(tag: Tag) extends Table[Voter](tag, "voters") {
-    def geocodedLocation = column[Option[String]],
-    def tigerlineId = column[Option[Int]],
-    def geocodeStatus = column[Option[String]],
-    def geocodeScore = column[Option[String]],
-    def address = column[Option[String]],
-    def tigerlineSide = column[Option[String]],
-    def id = column[String],
-    def x = column[Option[Double]],
-    def y = column[Option[Double]],
-    def lastName = column[Option[String]],
-    def firstName = column[Option[String]],
-    def middleName = column[Option[String]],
-    def dob = column[Date],
-    def streetAddress = column[String],
-    def city = column[Option[String]],
-    def state = column[Option[String]],
-    def zip = column[Option[Int]],
-    def lastvotedate = column[Option[Date]],
-    def affiliation = column[Option[String]],
-    def status = column[String],
-    def geom = column[Option[Projected[Point]]]
+    def geocodedLocation = column[Option[String]]("geocoded_location")
+    def tigerlineId = column[Option[Int]]("tigerline_id")
+    def geocodeStatus = column[Option[String]]("geocode_status")
+    def geocodeScore = column[Option[String]]("geocode_score")
+    def address = column[Option[String]]("address")
+    def tigerlineSide = column[Option[String]]("tigerline_side")
+    def id = column[String]("id")
+    def x = column[Option[Double]]("x")
+    def y = column[Option[Double]]("y")
+    def lastName = column[Option[String]]("lastname")
+    def firstName = column[Option[String]]("firstname")
+    def middleName = column[Option[String]]("middlename")
+    def dob = column[LocalDate]("dob")
+    def streetAddress = column[String]("streetaddress")
+    def city = column[Option[String]]("city")
+    def state = column[Option[String]]("state")
+    def zip = column[Option[Int]]("zip")
+    def lastvotedate = column[Option[LocalDate]]("lastvotedate")
+    def affiliation = column[Option[String]]("affiliation")
+    def status = column[String]("status")
+    def geom = column[Option[Projected[Point]]]("geom")
+
+    def * = (geocodedLocation, tigerlineId, geocodeStatus, geocodeScore, address, tigerlineSide,
+      id, x, y, lastName, firstName, middleName, dob, streetAddress, city, state, zip,
+      lastvotedate, affiliation, status, geom) <> (Voter.tupled, Voter.unapply)
   }
 
-  def votersTable = TableQuery[Boundaries]
+  def votersTable = TableQuery[Voters]
 
 }

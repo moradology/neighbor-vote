@@ -16,7 +16,7 @@ object Build extends Build {
       name := "votedb",
       organization := "votedb",
       version := "0.0.0",
-      scalaVersion := "2.11.5",
+      scalaVersion := "2.10.5",
       fork := true,
       scalacOptions ++=
         Seq("-deprecation",
@@ -41,6 +41,12 @@ object Build extends Build {
           "org.slf4j" % "slf4j-nop" % "1.6.4",
           "org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
 
+          // DATE HANDLING
+          "joda-time" % "joda-time" % "2.5",
+          "org.joda" % "joda-convert" % "1.7",
+          "com.github.tototoshi" %% "slick-joda-mapper" % "1.2.0",
+
+
           // UTILS
           "com.github.nscala-time" %% "nscala-time" % "1.8.0",
           "com.azavea.geotrellis" %% "geotrellis-slick" % "0.10.0-SNAPSHOT",
@@ -53,7 +59,7 @@ object Build extends Build {
       name := "vote",
       organization := "votewatch",
       version := "0.0.0",
-      scalaVersion := "2.11.5",
+      scalaVersion := "2.10.5",
       fork := true,
       scalacOptions ++=
         Seq("-deprecation",
@@ -85,7 +91,7 @@ object Build extends Build {
 
           // UTILS
           "com.github.nscala-time" %% "nscala-time" % "1.8.0",
-          "com.azavea.geotrellis" %% "geotrellis" % "0.10.0-SNAPSHOT"
+          "com.azavea.geotrellis" %% "geotrellis-vector" % "0.10.0-SNAPSHOT"
         )
     )
 
