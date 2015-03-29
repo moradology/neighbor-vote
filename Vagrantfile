@@ -48,8 +48,13 @@ Vagrant.configure("2") do |config|
   config.vm.define "default" do |db|
     db.vm.network :private_network, ip: "33.33.33.33"
 
-    # HDFS console
+    db.vm.synced_folder "src/app", "/opt/app/", type: "nfs"
+
+    # Postgres
     db.vm.network "forwarded_port", guest: 5432, host: 5432
+
+    # nginx
+    db.vm.network "forwarded_port", guest: 80, host: 9090
 
     # VirtualBox settings
     db.vm.provider :virtualbox do |vb|

@@ -5,6 +5,7 @@
     - { role: "azavea.postgresql" }
     - { role: "azavea.postgis" }
     - { role: "azavea.postgresql-support" }
+    - { role: "azavea.nginx", nginx_delete_default_site: True}
 
   tasks:
 
@@ -28,3 +29,16 @@
       failed_when: >
         psql_result.rc != 0 and ("already exists" not in psql_result.stderr)
       changed_when: "psql_result.rc == 0"
+
+    - name: Configure Nginx site
+      template: src=templates/nginx-votewatch.conf.j2
+                dest=/etc/nginx/sites-available/votewatch-app.conf
+      notify:
+        - Restart Nginx
+
+    - name: Enable Nginx site
+      file: src=/etc/nginx/sites-available/votewatch-app.conf
+            dest=/etc/nginx/sites-enabled/votewatch-app.conf
+            state=link
+      notify:
+        - Restart Nginx
