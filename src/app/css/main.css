@@ -1,0 +1,11 @@
+html, body {
+  height: 100%;
+}
+
+div#map {
+  height: 100%;
+}
+
+div.modal-dialog {
+  width: 90%;
+}
