@@ -48,6 +48,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "default" do |db|
     db.vm.network :private_network, ip: "33.33.33.33"
 
+    db.vm.synced_folder ".", "/vagrant/", type: "nfs"
     db.vm.synced_folder "src/app", "/opt/app/", type: "nfs"
 
     # Postgres

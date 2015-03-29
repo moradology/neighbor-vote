@@ -5,7 +5,7 @@
     - { role: "azavea.postgresql" }
     - { role: "azavea.postgis" }
     - { role: "azavea.postgresql-support" }
-    - { role: "azavea.nginx", nginx_delete_default_site: True}
+    - { role: "azavea.nginx", nginx_delete_default_site: True }
 
   tasks:
 
