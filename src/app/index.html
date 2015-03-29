@@ -21,25 +21,35 @@
                         <h1 class="modal-title">Social Vote: Philadelphia</h1>
                     </div>
                     <div class="modal-body">
+                      <div class="container">
                         <h4>What is this?</h4>
                         <p>A platform to explore whether or not your friends, family, and neighbors have voted. We hope that people will use this information to encourage others to become active participants in democracy.</p>
+
                         <h4>How did we get this information?</h4>
                         <p>The Secretary of State is required by law to publish voting history and registrations for all voters in Pennsylvania. This information <a href="https://www.pavoterservices.state.pa.us/Pages/PurchasePAFULLVoterExport.aspx">is available for purchase</a> from the state of Pennsylvania for only $20. This is information does not include how people vote, just whether or not they have voted.</p>
+
                         <h4>Why are we doing this?</h4>
                         <p>This project is inspired by <a href="http://isps.yale.edu/research/publications/isps08-001#.VRf-KnXd9hE">research</a> in <a href="http://csidev.gsb.stanford.edu/sites/csi.gsb.stanford.edu/files/T.Rogers%20-%20Descriptive%20Social%20Norms%20and%20Motivation%20to%20Vote.pdf">political science</a> on the topic of voter turnout. One recent finding that has been supported by other subsequent research is that social norms and pressure can influence voter turnout greatly. An experimental study by political scientists at Yale found that showing voters their own voting records in addition to the voting records of neighbors increased voter turnout by over 8 percent.</p>
                         <p>This effect is substantially greater than the observed effect of direct mail, phone calls, and even face-to-face canvassing. Additionally, this effect is greater than making registration easier -- studies that have looked at Election Day registration and vote-by-mail have found a modest increase in turnout by about 3 percentage points.</p>
+
                         <h4>Isn't this an invasion of privacy?</h4>
                         <p>This information is already available for purchase, we are only making use of a small portion of the data available. Corporations, political parties, and campaigns use this information in much more intrusive ways than we are. We think this information is also of public importance. We've taken great care to make it difficult to use the information on the website to determine people's addresses through the search interface. We value privacy as much as everyone else.</p>
+                      </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Explore the map!</button>
+                        <button type="button" id="modal-dismiss" class="btn btn-primary btn-lg" data-dismiss="modal">Explore the map!</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
         <!--MAP DIV-->
-        <div id="map"></div>
+        <div class="row" style="height:100%; width:100%">
+            <div id="data-pane" class="col-md-3">
+                <h4>BLAH</h4>
+            </div>
+            <div id="map" class="col-md-9"></div>
+        </div>
 
     </body>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>

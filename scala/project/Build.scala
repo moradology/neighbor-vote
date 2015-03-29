@@ -40,6 +40,7 @@ object Build extends Build {
           // SLICK DB
           "com.typesafe.slick" %% "slick" % "2.1.0",
           "org.slf4j" % "slf4j-nop" % "1.6.4",
+          "org.postgresql" % "postgresql" % "9.4-1201-jdbc41",
 
           // UTILS
           "com.github.nscala-time" %% "nscala-time" % "1.8.0",
