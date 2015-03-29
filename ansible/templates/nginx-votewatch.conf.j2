@@ -1,0 +1,9 @@
+server {
+  listen *:80;
+  server_name _;
+  root {{ app_home }}/src/app;
+
+  location / {
+    index index.html;
+  }
+}
