@@ -1,4 +1,4 @@
-package com.votedb.tables
+package votedb.tables
 
 import geotrellis.vector._
 import geotrellis.slick._

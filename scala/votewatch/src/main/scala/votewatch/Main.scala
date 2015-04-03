@@ -1,4 +1,4 @@
-package com.votewatch
+package votewatch
 
 import akka.io.IO
 import akka.actor.{ActorSystem, Props}
@@ -7,7 +7,7 @@ import spray.can.Http
 
 import com.typesafe.config.{ConfigFactory, Config}
 
-import com.votewatch.service.VoteWatchServiceActor
+import votewatch.service.VoteWatchServiceActor
 
 object Main {
 

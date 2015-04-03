@@ -1,4 +1,4 @@
-package com.votedb
+package votedb
 
 import scala.slick.jdbc.JdbcBackend._
 import com.typesafe.config.{ ConfigFactory, Config }

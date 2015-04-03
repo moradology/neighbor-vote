@@ -1,4 +1,4 @@
-package com.votewatch.service
+package votewatch.service
 
 import akka.actor.{Actor}
 import spray.util.LoggingContext
@@ -10,7 +10,7 @@ import spray.routing.{ExceptionHandler, HttpService}
 
 import scala.concurrent._
 
-import com.votewatch.service.route._
+import votewatch.service.route._
 
 class VoteWatchServiceActor extends Actor with VoteWatchService {
   // This is the execution context to use for this Actor
@@ -35,11 +35,11 @@ class VoteWatchServiceActor extends Actor with VoteWatchService {
 }
 
 trait VoteWatchService
-  extends BaseRoute
+  extends BufferRoutes
 {
 
   def votewatchRoute =
-    pathPrefix("wf") {
-      testRoute
+    pathPrefix("vw") {
+      voters
     }
 }

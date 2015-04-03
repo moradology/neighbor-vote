@@ -93,6 +93,6 @@ object Build extends Build {
           "com.github.nscala-time" %% "nscala-time" % "1.8.0",
           "com.azavea.geotrellis" %% "geotrellis-vector" % "0.10.0-SNAPSHOT"
         )
-    )
+    ).dependsOn(votedb)
 
 }

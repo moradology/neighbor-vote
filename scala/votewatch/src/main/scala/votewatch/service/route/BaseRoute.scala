@@ -1,4 +1,4 @@
-package com.votewatch.service.route
+package votewatch.service.route
 
 import spray.httpx.marshalling.BasicMarshallers._
 
@@ -10,13 +10,13 @@ import scala.concurrent._
 import spray.util.LoggingContext
 import spray.routing._
 import spray.json._
-import spray.httpx.SprayJsonSupport._
+import spray.httpx.SprayJsonSupport
 import DefaultJsonProtocol._
 
 
 import scala.util.Success
 
-trait BaseRoute extends HttpService {
+trait BaseRoute extends HttpService with SprayJsonSupport {
   // Required for marshalling futures
   implicit val dispatcher: ExecutionContext
 
@@ -37,14 +37,5 @@ trait BaseRoute extends HttpService {
             JsObject("aNum" -> JsNumber(1))
           }
         }
-    }
-
-  def testRoute =
-    path("test") {
-      get {
-        complete {
-          JsObject("whatever" -> JsNumber(867))
-        }
-      }
     }
 }
