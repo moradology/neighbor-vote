@@ -59,13 +59,13 @@ Vagrant.configure("2") do |config|
 
     # VirtualBox settings
     db.vm.provider :virtualbox do |vb|
-      vb.customize ["modifyvm", :id, "--memory", "2048"]
+      vb.customize ["modifyvm", :id, "--memory", "5000"]
       vb.cpus = 8
     end
 
     # Settings for KVM/libvirt
     config.vm.provider :libvirt do |domain|
-      domain.memory = 2048
+      domain.memory = 5000
     end
 
     # Ansible provisioning
