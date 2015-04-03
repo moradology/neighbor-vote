@@ -6,7 +6,7 @@
     - { role: "azavea.postgis" }
     - { role: "azavea.postgresql-support" }
     - { role: "azavea.nginx", nginx_delete_default_site: True }
-    - { role: "azavea.java", java_flavor: 'oracle', java_oracle_acccept_license_agreement: True }
+    - { role: "neighborhood.geotrellis" }
     - { role: "azavea.scala" }
   tasks:
 

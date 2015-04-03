@@ -1,0 +1,5 @@
+---
+dependencies:
+  - { role: "azavea.java" }
+  - { role: "azavea.scala" }
+  - { role: "azavea.git" }
